@@ -3,3 +3,23 @@
 @tailwind components;
 
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+#__next {
+  height: 100vh;
+}
+body {
+  font-family: 'Sarabun', sans-serif;
+}
+.navbar:hover {
+  background-color: #ffffff22;
+}
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+.imagebackground {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  z-index: -1;
+}
