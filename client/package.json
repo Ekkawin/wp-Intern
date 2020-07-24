@@ -6,7 +6,8 @@
     "build:style": "tailwind build public/style.css -c tailwind.config.js -o public/tailwind.css",
     "dev": "yarn build:style && next",
     "build": "yarn build:style && next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "yarn build && next export"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",

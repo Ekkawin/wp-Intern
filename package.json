@@ -6,6 +6,6 @@
   "author": "Aek <ekkawin.v@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "cd client && yarn build"
+    "build": "cd client && yarn deploy"
   }
 }
