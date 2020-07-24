@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Table } from 'antd';
 import Head from 'next/head';
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
@@ -32,8 +34,55 @@ const PlainText = styled.div<{ color: string; size: string }>`
   display: flex;
   justify-content: center;
 `;
+const BodyTwo = styled.div`
+  display: flex;
+`;
+
+const columns = [
+  {
+    title: '',
+    width: 100,
+    dataIndex: 'no',
+    key: 'no',
+    fixed: 'left',
+  },
+  {
+    title: 'จังหวัด',
+    width: 100,
+    dataIndex: 'city',
+    key: 'city',
+    fixed: 'left',
+  },
+  {
+    title: 'ผู้ติดเชื้อ',
+    dataIndex: 'infectnum',
+    key: 'infectnum',
+    width: 150,
+  },
+];
 
 export default function Home() {
+  const [data, setData] = useState([
+    {
+      key: '1',
+      no: '1',
+      city: 'bkk',
+      infectnum: '2',
+    },
+    {
+      key: '2',
+      no: '2',
+      city: 'phu',
+      infectnum: '3',
+    },
+    {
+      key: '3',
+      no: '3',
+      city: 'yo',
+      infectnum: '5',
+    },
+  ]);
+
   return (
     <>
       <Navbar>
@@ -84,6 +133,18 @@ export default function Home() {
         </div>
         <img className="imagebackground" src="/images/th.svg" width="400px" />
       </BodyOne>
+      <BodyTwo>
+        <div className="flex-col">
+          <div>ผู่ติดเชื้อในประเทศ</div>
+          <div>แยกตามจังหวัด</div>
+          <div>อัพเดตล่าสุด</div>
+          <div>
+            <Table columns={columns} dataSource={data} />
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+      </BodyTwo>
       <div className="bg-black h-48"></div>
     </>
   );
