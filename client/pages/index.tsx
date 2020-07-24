@@ -11,25 +11,31 @@ const Navbar = styled.div`
   justify-content: space-between;
   height: 5em;
 `;
-const imagebackground = css`
-  position: absolute;
-  top: 20px;
-`;
 
 const BodyOne = styled.div`
   position: relative;
   background-color: #353538;
-  height: 40%;
   overflow: hidden;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 10%;
+  padding: 100px 20px;
   z-index: -2;
+`;
+const Date = styled.div`
+  color: white;
+  font-size: 1.25rem;
+  position: absolute;
+  top: -50px;
+  right: 0;
+`;
+const PlainText = styled.div<{ color: string; size: string }>`
+  color: ${(props) => props.color || 'white'};
+  font-size: ${(props) => props.size || '1rem'};
+  display: flex;
+  justify-content: center;
 `;
 
 export default function Home() {
   return (
-    <div className="h-full bg-transparent">
+    <>
       <Navbar>
         <img src="/images/workpointnews.svg" />
         <div className="flex justify-between w-7/12">
@@ -44,17 +50,41 @@ export default function Home() {
       </Navbar>
       <BodyOne>
         {/* <ReactLogo /> */}
-        <div className="flex">
-          <div className="flex-col items-center w-5/12">
-            <div className="text-white text-4xl">ยืนยันตัวเลขผู้ติดเชื้อ</div>
-            <div>COVID-19</div>
-            <div>ทั้งหมดในประเทศไทย</div>
+        <div className="flex justify-center">
+          <div className="flex-col justify-end items-center w-1/3">
+            {/* <div className="flex justify-center text-4xl text-white">
+              ยืนยันตัวเลขผู้ติดเชื้อ
+            </div> */}
+            <PlainText color="white" size="3rem">
+              ยืนยันตัวเลขผู้ติดเชื้อ
+            </PlainText>
+
+            <PlainText color="pink" size="5rem">
+              COVID-19
+            </PlainText>
+
+            <PlainText color="white" size="2.5rem">
+              ทั้งหมดในประเทศไทย
+            </PlainText>
           </div>
-          <div>กล่องๆๆๆๆ</div>
+          <div className="flex-col w-1/3 relative">
+            {/* <div className="flex justify-end text-white text-xl mb-4">
+              วันที่ 22 กรกฎาคม 2563
+            </div> */}
+            <Date>วันที่ 23 กรกฎาคม 2563</Date>
+            <div className="h-48 bg-pink-500 rounded-lg"></div>
+            <div className="flex w-full h-48 justify-between mt-4">
+              <div className="bg-yellow-500 w-full mr-4 rounded-lg"></div>
+
+              <div className="bg-green-500 w-full rounded-lg"></div>
+
+              <div className="bg-red-500 w-full ml-4 rounded-lg"></div>
+            </div>
+          </div>
         </div>
-        <img className="imagebackground" src="/images/th.svg" width="30%" />
+        <img className="imagebackground" src="/images/th.svg" width="400px" />
       </BodyOne>
-      <div className="bg-black h-32"></div>
-    </div>
+      <div className="bg-black h-48"></div>
+    </>
   );
 }

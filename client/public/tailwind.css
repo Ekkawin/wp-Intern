@@ -17877,6 +17877,32 @@ video {
   transition-delay: 1000ms;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+#__next {
+  height: 100vh;
+}
+
+body {
+  font-family: 'Kanit', sans-serif;
+}
+
+.navbar:hover {
+  background-color: #ffffff22;
+}
+
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.imagebackground {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  z-index: -1;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

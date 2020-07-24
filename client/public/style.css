@@ -3,12 +3,13 @@
 @tailwind components;
 
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 #__next {
   height: 100vh;
 }
 body {
-  font-family: 'Sarabun', sans-serif;
+  font-family: 'Kanit', sans-serif;
 }
 .navbar:hover {
   background-color: #ffffff22;
