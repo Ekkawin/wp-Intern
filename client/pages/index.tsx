@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Table } from 'antd';
+import { Table, Progress, Spin, Space, Button } from 'antd';
 import Head from 'next/head';
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
@@ -12,6 +12,10 @@ const Navbar = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 5em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 `;
 
 const BodyOne = styled.div`
@@ -36,6 +40,16 @@ const PlainText = styled.div<{ color: string; size: string }>`
 `;
 const BodyTwo = styled.div`
   display: flex;
+  height: 100%;
+`;
+const TableOfInfect = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const InfectInThailand = styled.div`
+  display: flex;
+  height: 100%;
+  width: 260px;
 `;
 
 const columns = [
@@ -108,7 +122,7 @@ export default function Home() {
               ยืนยันตัวเลขผู้ติดเชื้อ
             </PlainText>
 
-            <PlainText color="pink" size="5rem">
+            <PlainText color="#EA5771" size="5rem">
               COVID-19
             </PlainText>
 
@@ -134,18 +148,24 @@ export default function Home() {
         <img className="imagebackground" src="/images/th.svg" width="400px" />
       </BodyOne>
       <BodyTwo>
-        <div className="flex-col">
-          <div>ผู่ติดเชื้อในประเทศ</div>
-          <div>แยกตามจังหวัด</div>
-          <div>อัพเดตล่าสุด</div>
-          <div>
-            <Table columns={columns} dataSource={data} />
-          </div>
+        <InfectInThailand></InfectInThailand>
+        <div className="w-full">
+          <img src="images/thailand.svg" width={260} />
         </div>
-        <div></div>
-        <div></div>
+        <div className="flex-col h-full w-full">
+          <Progress
+            type="circle"
+            showInfo={false}
+            percent={55}
+            trailColor="#EA5771"
+            strokeLinecap="square"
+            status="active"
+            format={() => 'เพศ'}
+          />
+        </div>
       </BodyTwo>
-      <div className="bg-black h-48"></div>
+
+      <div className="bg-white h-48"></div>
     </>
   );
 }
