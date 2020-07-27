@@ -103,11 +103,11 @@ export default function Home() {
         </div>
         <div>อัพเดตล่าสุด</div>
       </Navbar>
-      <div id="Thailand">
+      <div id="Thailand" className="mt-16">
         <BodyOne>
           {/* <ReactLogo /> */}
-          <div className="flex justify-center">
-            <div className="flex-col justify-end items-center w-1/3">
+          <div className="grid grid-cols-5 gap4">
+            <div className="col-span-2 flex-col">
               {/* <div className="flex justify-center text-4xl text-white">
               ยืนยันตัวเลขผู้ติดเชื้อ
             </div> */}
@@ -123,7 +123,7 @@ export default function Home() {
                 ทั้งหมดในประเทศไทย
               </PlainText>
             </div>
-            <div className="flex-col w-1/3 relative">
+            <div className="flex-col col-span-3 relative px-16 max-w-screen-md">
               {/* <div className="flex justify-end text-white text-xl mb-4">
               วันที่ 22 กรกฎาคม 2563
             </div> */}
