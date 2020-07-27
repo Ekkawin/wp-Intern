@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Table, Progress, Spin, Space, Button } from 'antd';
+import { PieChart, Pie, Sector, Cell, Tooltip, Label } from 'recharts';
+
 import Head from 'next/head';
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
@@ -51,7 +53,38 @@ const InfectInThailand = styled.div`
   height: 100%;
   width: 260px;
 `;
+const data = [
+  { name: 'Men', value: 55, colorindex: 0 },
+  { name: 'Women', value: 45, colorIndex: 1 },
+  { name: 'unknown', value: 0, colorIndex: 2 },
+];
 
+const SimplePieChart = () => {
+  return (
+    <PieChart width={800} height={400}>
+      <Pie
+        data={data}
+        cx={300}
+        cy={200}
+        labelLine={true}
+        outerRadius={80}
+        innerRadius={60}
+        fill="#8884d8"
+        startAngle={90}
+        endAngle={450}
+        label
+      >
+        <Label value="เพศ" position="center" />
+        {data.map((entry, index) => (
+          <Cell fill={colorIndex[index]} />
+        ))}
+      </Pie>
+      <Tooltip />
+    </PieChart>
+  );
+};
+
+const colorIndex = ['#EA5771', 'blue', 'gray'];
 const columns = [
   {
     title: '',
@@ -153,15 +186,7 @@ export default function Home() {
           <img src="images/thailand.svg" width={260} />
         </div>
         <div className="flex-col h-full w-full">
-          <Progress
-            type="circle"
-            showInfo={false}
-            percent={55}
-            trailColor="#EA5771"
-            strokeLinecap="square"
-            status="active"
-            format={() => 'เพศ'}
-          />
+          <SimplePieChart />
         </div>
       </BodyTwo>
 
