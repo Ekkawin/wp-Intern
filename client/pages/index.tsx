@@ -13,6 +13,10 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  AreaChart,
+  Area,
+  Line,
+  LineChart,
 } from 'recharts';
 
 import Head from 'next/head';
@@ -79,14 +83,118 @@ const data = [
   { name: 'unknown', value: 0, colorIndex: 2 },
 ];
 const bardata = [
-  { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-  { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
-  { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
-  { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
-  { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
-  { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },
+  {
+    name: 'Page A',
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    name: 'Page B',
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: 'Page C',
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Page D',
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: 'Page E',
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: 'Page F',
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
 ];
+const LineStatistic = () => {
+  return (
+    <LineChart
+      width={500}
+      height={300}
+      data={bardata}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line
+        type="monotone"
+        dataKey="pv"
+        stroke="#8884d8"
+        activeDot={{ r: 8 }}
+      />
+      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+    </LineChart>
+  );
+};
+const AreaStatistic = () => {
+  return (
+    <AreaChart
+      width={1240}
+      height={400}
+      data={bardata}
+      margin={{
+        top: 10,
+        right: 30,
+        left: 0,
+        bottom: 0,
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Area
+        type="monotone"
+        dataKey="uv"
+        stackId="1"
+        stroke="#8884d8"
+        fill="#8884d8"
+      />
+      <Area
+        type="monotone"
+        dataKey="pv"
+        stackId="1"
+        stroke="#82ca9d"
+        fill="#82ca9d"
+      />
+      <Area
+        type="monotone"
+        dataKey="amt"
+        stackId="1"
+        stroke="#ffc658"
+        fill="#ffc658"
+      />
+    </AreaChart>
+  );
+};
 const SimpleBarChart = () => {
   return (
     <BarChart
@@ -96,13 +204,12 @@ const SimpleBarChart = () => {
       data={bardata}
       margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
     >
-      <CartesianGrid strokeDasharray="3 3" />
+      {/* <CartesianGrid strokeDasharray="3 3" /> */}
       <XAxis type="number" />
       <YAxis dataKey="name" type="category" />
       <Tooltip />
       <Legend />
-      <Bar dataKey="pv" fill="#8884d8" />
-      <Bar dataKey="uv" fill="#82ca9d" />
+      <Bar dataKey="uv" fill="#EA5771" background={{ fill: '#eee' }} />
     </BarChart>
   );
 };
@@ -250,8 +357,32 @@ export default function Home() {
           </div>
         </BodyTwo>
 
-        <div className="bg-white h-48"></div>
+        <div className="flex-col w-full justify-center">
+          <div className="flex-1">
+            <div>แนวโน้มผู้ติดดชื้อทั้งหมดในประเทศ</div>
+            <div className="flex-1 flex justify-center">
+              <div>ผู้ติดเชื้อ</div>
+              <div>กำลังรักษา</div>
+              <div>หายดี</div>
+              <div>เสียชีวิต</div>
+            </div>
+          </div>
+          <AreaStatistic />
+        </div>
+        <div className="flex-col w-full justify-center">
+          <div className="flex-1">
+            <div>แนวโน้มผู้ติดดชื้อทั้งหมดในประเทศ</div>
+            <div className="flex-1 flex justify-center">
+              <div>ผู้ติดเชื้อ</div>
+              <div>กำลังรักษา</div>
+              <div>หายดี</div>
+              <div>เสียชีวิต</div>
+            </div>
+          </div>
+          <LineStatistic />
+        </div>
       </div>
+
       <div className="h-64" id="World"></div>
     </>
   );
