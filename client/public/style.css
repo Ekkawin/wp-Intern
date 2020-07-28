@@ -21,10 +21,15 @@ body {
 }
 .imagebackground {
   position: absolute;
-  top: 20%;
-  left: 10%;
+  width: 370px;
+  height: 740px;
+  top: -60px;
+  left: -50px;
   z-index: -1;
 }
 .recharts-pie-label-line {
   display: none;
+}
+a {
+  color: white !important;
 }
