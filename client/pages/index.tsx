@@ -130,13 +130,32 @@ export default function Home() {
               วันที่ 22 กรกฎาคม 2563
             </div> */}
                 <Date>วันที่ 23 กรกฎาคม 2563</Date>
-                <div className="h-48 bg-pink-500 rounded-lg"></div>
+                <div className="flex h-48 bg-pink-500 rounded-lg p-8">
+                  <div className="flex-col">
+                    <div className="text-white text-2xl mb-6">
+                      <b>ผู้ติดเชื่อสะสม</b>
+                    </div>
+                    <div className="bg-white w-64 h-16 rounded-md "></div>
+                  </div>
+                </div>
                 <div className="flex w-full h-48 justify-between mt-4">
-                  <div className="bg-yellow-500 w-full mr-4 rounded-lg"></div>
+                  <div className="bg-yellow-500 w-full mr-4 rounded-lg flex-col items-center text-center p-8">
+                    <div className="text-md">กำลังรักษา</div>
+                    <div className="text-5xl">100</div>
+                    <div className="bg-white w-full h-12 rounded-md mx-auto"></div>
+                  </div>
 
-                  <div className="bg-green-500 w-full rounded-lg"></div>
+                  <div className="bg-green-500 w-full rounded-lg flex-col items-center text-center p-6">
+                    <div className="text-md">หายแล้ว</div>
+                    <div className="text-5xl">100</div>
+                    <div className="bg-white w-full h-12 rounded-md mx-auto"></div>
+                  </div>
 
-                  <div className="bg-red-500 w-full ml-4 rounded-lg"></div>
+                  <div className="bg-red-500 w-full ml-4 rounded-lg flex-col items-center text-center p-6">
+                    <div className="text-md">เสียชีวิต</div>
+                    <div className="text-5xl">100</div>
+                    <div className="bg-white w-full h-12 rounded-md mx-auto"></div>
+                  </div>
                 </div>
               </div>
             </div>
