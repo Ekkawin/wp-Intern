@@ -91,23 +91,23 @@ export default function Home() {
     <>
       <Navbar>
         <img src="/images/workpointnews.svg" />
-        <div className="flex justify-between w-7/12">
-          <div className="flex-none py-7 px-4 navbar"> ประเทศไทย</div>
+        <div className="flex justify-between w-7/12 max-w-screen-md text-md">
+          <a className="flex-none py-7 px-4 navbar"> ประเทศไทย</a>
           <a className="flex-none py-7 px-4 navbar" href="#World">
             ตัวเลือก
           </a>
-          <div className="flex-none py-7 px-4 navbar">โรงพยาบาล</div>
-          <div className="flex-none py-7 px-4 navbar">ความรู้สู้ COVID-19</div>
-          <div className="flex-none py-7 px-4 navbar">ความคืบหน้่าล่าสุด</div>
-          <div className="flex-none py-7 px-4 navbar">FAQ</div>
+          <a className="flex-none py-7 px-4 navbar">โรงพยาบาล</a>
+          <a className="flex-none py-7 px-4 navbar">ความรู้สู้ COVID-19</a>
+          <a className="flex-none py-7 px-4 navbar">ความคืบหน้่าล่าสุด</a>
+          <a className="flex-none py-7 px-4 navbar">FAQ</a>
         </div>
         <div>อัพเดตล่าสุด</div>
       </Navbar>
-      <div id="Thailand">
+      <div id="Thailand" className="mt-16">
         <BodyOne>
           {/* <ReactLogo /> */}
-          <div className="flex justify-center">
-            <div className="flex-col justify-end items-center w-1/3">
+          <div className="grid grid-cols-11 gap4">
+            <div className="col-span-5 flex-col ml-auto px-8 relative">
               {/* <div className="flex justify-center text-4xl text-white">
               ยืนยันตัวเลขผู้ติดเชื้อ
             </div> */}
@@ -122,23 +122,44 @@ export default function Home() {
               <PlainText color="white" size="2.5rem">
                 ทั้งหมดในประเทศไทย
               </PlainText>
+              <img className="imagebackground" src="/images/th.svg" />
             </div>
-            <div className="flex-col w-1/3 relative">
-              {/* <div className="flex justify-end text-white text-xl mb-4">
+            <div className="flex-col col-span-6">
+              <div className="relative max-w-screen-sm">
+                {/* <div className="flex justify-end text-white text-xl mb-4">
               วันที่ 22 กรกฎาคม 2563
             </div> */}
-              <Date>วันที่ 23 กรกฎาคม 2563</Date>
-              <div className="h-48 bg-pink-500 rounded-lg"></div>
-              <div className="flex w-full h-48 justify-between mt-4">
-                <div className="bg-yellow-500 w-full mr-4 rounded-lg"></div>
+                <Date>วันที่ 23 กรกฎาคม 2563</Date>
+                <div className="flex h-48 bg-pink-500 rounded-lg p-8">
+                  <div className="flex-col">
+                    <div className="text-white text-2xl mb-6">
+                      <b>ผู้ติดเชื่อสะสม</b>
+                    </div>
+                    <div className="bg-white w-64 h-16 rounded-md "></div>
+                  </div>
+                </div>
+                <div className="flex w-full h-48 justify-between mt-4">
+                  <div className="bg-yellow-500 w-full mr-4 rounded-lg flex-col items-center text-center p-8">
+                    <div className="text-md">กำลังรักษา</div>
+                    <div className="text-5xl">100</div>
+                    <div className="bg-white w-full h-12 rounded-md mx-auto"></div>
+                  </div>
 
-                <div className="bg-green-500 w-full rounded-lg"></div>
+                  <div className="bg-green-500 w-full rounded-lg flex-col items-center text-center p-6">
+                    <div className="text-md">หายแล้ว</div>
+                    <div className="text-5xl">100</div>
+                    <div className="bg-white w-full h-12 rounded-md mx-auto"></div>
+                  </div>
 
-                <div className="bg-red-500 w-full ml-4 rounded-lg"></div>
+                  <div className="bg-red-500 w-full ml-4 rounded-lg flex-col items-center text-center p-6">
+                    <div className="text-md">เสียชีวิต</div>
+                    <div className="text-5xl">100</div>
+                    <div className="bg-white w-full h-12 rounded-md mx-auto"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <img className="imagebackground" src="/images/th.svg" width="400px" />
         </BodyOne>
         <BodyTwo>
           <InfectInThailand></InfectInThailand>
