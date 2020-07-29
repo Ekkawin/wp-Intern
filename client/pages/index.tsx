@@ -53,14 +53,23 @@ const PlainText = styled.div<{ color: string; size: string }>`
 `;
 const BodyTwo = styled.div`
   display: flex;
-  height: 100%;
+  height: 85vh;
 `;
+const SubBodyTwoThailand = styled.div`
+  display: flex;
+  flex: 3;
+`;
+const SubBodyTwoChart = styled.div`
+  flex: 2;
+  flex-direction: column;
+  margin-right: 3rem;
+`;
+
 const TableOfInfect = styled.div`
   display: flex;
   flex-direction: column;
 `;
 const InfectInThailand = styled.div`
-  display: flex;
   height: 100%;
   width: 260px;
 `;
@@ -162,22 +171,32 @@ export default function Home() {
           </div>
         </BodyOne>
         <BodyTwo>
-          <InfectInThailand></InfectInThailand>
-          <div className="w-full">
-            <img src="images/thailand.svg" width={260} />
-          </div>
-          <div className="flex-col h-full w-full">
+          <SubBodyTwoThailand>
+            <InfectInThailand></InfectInThailand>
+            <div className="w-full">
+              <img src="images/thailand.svg" width={260} />
+            </div>
+          </SubBodyTwoThailand>
+          <SubBodyTwoChart>
             <div className="flex items-center justify-center">
               <SimplePieChart />
-              <div className="flex-col">
+              <div className="flex-col ml-12">
                 <div className="flex">
-                  <div className="bg-black w-2 h-2"></div>
-                  <div>ชาย</div>
+                  <div className="bg-black w-5 h-5 rounded mr-3 mb-3"></div>
+                  <div className="text-md">ชาย</div>
+                </div>
+                <div className="flex">
+                  <div className="bg-black w-5 h-5 rounded mr-3 mb-3"></div>
+                  <div className="text-md">หญิง</div>
+                </div>
+                <div className="flex">
+                  <div className="bg-black w-5 h-5 rounded mr-3"></div>
+                  <div className="text-md">ไม่ระบุ</div>
                 </div>
               </div>
             </div>
             <SimpleBarChart />
-          </div>
+          </SubBodyTwoChart>
         </BodyTwo>
 
         <div className="flex-col w-full justify-center">

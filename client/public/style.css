@@ -33,3 +33,9 @@ body {
 a {
   color: white !important;
 }
+text.recharts-text.recharts-label {
+  font-size: 30px;
+}
+text.recharts-text.recharts-pie-label-text {
+  font-size: 20px;
+}

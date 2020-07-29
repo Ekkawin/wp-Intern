@@ -66,7 +66,7 @@ const bardata = [
   },
 ];
 
-const colorIndex = ['#EA5771', 'blue', 'gray'];
+const colorIndex = ['#EA5771', '#008FFF', 'gray'];
 const columns = [
   {
     title: '',
@@ -180,20 +180,21 @@ export const SimpleBarChart = () => {
 
 export const SimplePieChart = () => {
   return (
-    <PieChart width={800} height={400}>
+    <PieChart width={450} height={400}>
       <Pie
         data={data}
         cx={300}
         cy={200}
         labelLine={true}
-        outerRadius={80}
-        innerRadius={60}
+        outerRadius={90}
+        innerRadius={70}
         fill="#8884d8"
         startAngle={90}
         endAngle={450}
         label
       >
         <Label value="เพศ" position="center" />
+
         {data.map((entry, index) => (
           <Cell fill={colorIndex[index]} />
         ))}
